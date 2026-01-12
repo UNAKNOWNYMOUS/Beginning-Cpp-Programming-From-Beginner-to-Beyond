@@ -23,4 +23,6 @@ tags: []
 - Runtime errors are errors that occur when the program is executing.
 ## What are Logic Errors?
 - Logic errors are errors or bugs in your code that cause your program to run incorrectly.
-## Section Challenge.
+## Section Challenge
+- See `section_4C.cpp`
+## Quiz 1: Section 4 Quiz
