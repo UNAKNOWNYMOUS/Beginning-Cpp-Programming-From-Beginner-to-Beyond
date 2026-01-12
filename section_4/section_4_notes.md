@@ -25,4 +25,5 @@ tags: []
 - Logic errors are errors or bugs in your code that cause your program to run incorrectly.
 ## Section Challenge
 - See `section_4C.cpp`
-## Quiz 1: Section 4 Quiz
+## Quiz 1
+- [x] Section 4 Quiz
