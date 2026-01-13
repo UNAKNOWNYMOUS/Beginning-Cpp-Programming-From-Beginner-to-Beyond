@@ -67,3 +67,9 @@ int age {21}; // C++11 list initialization syntax
 - Character Literal Constants (escape codes/escape sequence)
 - Don't use defined constants in Modern C++!
 ## Declaring and Using Constants
+- Pseudocode is an English-like/natural language-like representation of an Algorithm or steps required to solve a problem.
+- Refactoring means making your code better without changing behavior.
+## Section Challenge
+## Section Challenge - Solution
+## Quiz 3
+- [x] Section 06 Quiz
