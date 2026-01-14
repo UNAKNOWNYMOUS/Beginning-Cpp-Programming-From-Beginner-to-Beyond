@@ -70,6 +70,7 @@ int age {21}; // C++11 list initialization syntax
 - Pseudocode is an English-like/natural language-like representation of an Algorithm or steps required to solve a problem.
 - Refactoring means making your code better without changing behavior.
 ## Section Challenge
+- See `section_6C.cpp`
 ## Section Challenge - Solution
 ## Quiz 3
 - [x] Section 06 Quiz
