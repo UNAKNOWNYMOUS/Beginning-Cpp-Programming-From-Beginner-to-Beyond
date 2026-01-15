@@ -58,3 +58,11 @@ vector <double> hi_temperatures (365, 80.0);
 - Stored contiguously in memory.
 - Individual elements can be accessed by their position or index.
 - When you declare a vector the elements will be initialized to 0.
+## Accessing and Modifying Vector Elements
+## Coding Exercise 6
+- [x] Declaring, Initializing, and Accessing Vectors
+## Section Challenge
+## Section Challenge - Solution
+- When we add elements to vectors we are making a copy of what we're inserting!
+## Quiz 4
+- [x] Section 07 Quiz
