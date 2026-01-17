@@ -1,11 +1,11 @@
 #include <iostream>
 
 int main() {
-  int const dollar{100};
-  int const quarter{25};
-  int const dime{10};
-  int const nickel{5};
-  int const penny{1};
+  const int dollar{100};
+  const int quarter{25};
+  const int dime{10};
+  const int nickel{5};
+  const int penny{1};
 
   int change{};
 

@@ -48,11 +48,25 @@ tags: []
 - Type Coercion: conversion of one operand to another data type.
 - Promotion: conversion to a higher type.
 - Demotion: conversion to a lower type.
+### Explicit Type Casting
+- Static type casting takes on the general form:
+```cpp
+static_cast<type>(operand);
+```
 ## Testing for Equality
 - The `==` and `!=` operators:
   - Compares the values of 2 expressions.
   - Evaluates to a Boolean (True or False, 1 or 0)
+- To print the words "true" and "false" use:
+```cpp
+std::boolalpha;
+```
+- To not print the words "true" and "false" use:
+```cpp
+std::noboolalpha;
+```
 ## Relational Operators
+- `<=>` three-way comparison (C++20) otherwise known as the spaceship operator.
 ## Logical Operators
 ### Precedence
 - not has higher precedence than and.
@@ -70,5 +84,4 @@ tags: []
 ## Quiz 5
 - [x] Section 08 Quiz
 
-
-TODO ADD NOTES OF GENERAL FORM for type casting, print the words true and false and the spaceship (three-way operator)
+TODO: Look up difference between `const int` and `int const`
