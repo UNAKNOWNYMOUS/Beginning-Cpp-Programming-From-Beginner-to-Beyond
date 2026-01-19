@@ -189,3 +189,14 @@ do {
   - Even loop in an event-driven program.
   - Operating system.
 ## Nested Loops
+- Loop nested within another loop.
+- Can be as many levels deep as the program needs.
+- Very useful with multi-dimensional data structures.
+- Outer loop vs. Inner loop.
+## Coding Exercise 18
+- [x] Nested Loops - Sum of the Product of all Pairs of Vector Elements
+## Section Challenge
+## Section Challenge - Solution Part 1
+## Section Challenge - Solution Part 2
+## Quiz 6
+- [x] Section 09 Quiz
