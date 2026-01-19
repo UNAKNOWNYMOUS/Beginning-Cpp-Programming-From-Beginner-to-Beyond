@@ -146,4 +146,46 @@ for (var_type var _name : sequence) {
 }
 ```
 - We don't have to specifically give the type of the loop variable we can use `auto`.
-- The `auto`
+- The `auto` key word tells the C++ compiler to deduce the type itself.
+  - In other words, you are telling the C++ compiler to figure out the type based on the declarations.
+## Coding Exercise 15
+- [x] Using the range-based for loop
+## while Loop
+- The while loop takes on the general form:
+```cpp
+while (expression)
+  statement;
+// or
+while (expression) {
+  statements;
+}
+```
+## Coding Exercise 16
+- [x] While loop exercise
+## do while Loop
+- The do while loop takes on the general form:
+```cpp
+do {
+  statements;
+} while (expression);
+```
+- Variables inside the loop condition for a do-while loop need to be declared outside the loop.
+## Coding Exercise 17
+- [x] Do-while loop exercise
+## continue and break
+- `continue`
+  - no further statements in the body of the loop are executed.
+  - control immediately goes directly to the beginning of the loop for the next iteration.
+  - the condition is tested again.
+- `break`
+  - no further statements in the body of the loop are executed.
+  - loop is immediately terminated.
+  - control immediately goes to the statement following the loop construct.
+## Infinite Loops
+- Loops whose condition expression always evaluate to true.
+- Usually this is unintended and a programmer error.
+- Sometimes programmers use infinite loops and include and break statements in the body to control them
+- Sometimes infinite loops are exactly what we need:
+  - Even loop in an event-driven program.
+  - Operating system.
+## Nested Loops
