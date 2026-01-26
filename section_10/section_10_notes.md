@@ -54,6 +54,6 @@ function_name(char)
 ## Section Challenge
 ## Selection Challenge - Solution
 ## Quiz 7
-- [ ] Section 10 Quiz
+- [x] Section 10 Quiz
 ## Assignment 1
-- [ ] Challenge Assignment - Letter Pyramid
+- [x] Challenge Assignment - Letter Pyramid
