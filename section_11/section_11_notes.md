@@ -66,6 +66,8 @@ tags: []
   - Avoid many return statements in a function.
     - Just like break statements.
 - The return value is the result of the function call.
+## Coding Exercise 23
+- [x] Functions and Prototypes - Converting Temperatures.
 ## Default Argument Values
 - When a function is called, all arguments must be supplied.
 - Sometimes some of the arguments have the same values most of the time.
@@ -75,6 +77,8 @@ tags: []
   - Must appear at the tail end of the parameter list.
 - Can have multiple default values.
   - must appear consecutively at the tail end of the parameter list.
+## Coding Exercise 24
+- [x] Using Default Argument Values - Grocery List
 ## Overloading Functions
 - We can have functions that have different parameter lists that have the same name.
 - Abstraction mechanism since we can just think `print` for example.
@@ -83,6 +87,8 @@ tags: []
 - The compiler must be able to tell the functions apart based on the parameter lists and argument supplied.
 - Return type doesn't matter, the parameters do!
 - Be mindful when using default parameters with overloaded functions.
+## Coding Exercise 25
+- [x] Overloading Functions - Calculating Area
 ## Passing Arrays to Functions
 - We can pass an array to a function by providing square brackets in the formal parameter description.
 ```cpp
@@ -96,12 +102,16 @@ void print_array(int numbers []);
 ### const parameters
 - We can tell the compiler that function parameters are const (read-only).
 - This could be useful in the print_array function since it should NOT modify the array.
+## Coding Exercise 26
+- [x] Passing Arrays to Functions - Print a Guest List
 ## Pass by Reference
 - Sometimes we want to be able to change the actual parameter from within the function body.
 - In order to achieve this we need the location or address of the actual parameter.
 - We saw how this is the effect with the array, but what about other variable types?
 - We can use reference parameters to tell the compiler to pass in a reference to the actual parameter.
 - The formal parameter will now be an alias for the actual parameter.
+## Coding Exercise 27
+- [x] Using Pass by Reference - Print a Guest List
 ## Scope Rules
 - C++ uses scope rules to determine where an identifier can be used.
 - C++ uses static or lexical scoping.
