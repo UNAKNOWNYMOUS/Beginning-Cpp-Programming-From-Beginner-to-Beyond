@@ -146,3 +146,45 @@ static int value {10};
   - When a function terminates we pop the activation record and return.
   - Local variables and function parameters are allocated on the stack.
 - Stack size is finite - Stack Overflow.
+## inline Functions
+- Function calls have a certain amount of overhead.
+- You saw what happens on the call stack.
+- Sometimes we have simple functions.
+- We can *suggest* to the compiler to compile them 'inline':
+  - avoid function call overhead.
+  - generate inline assembly code.
+  - faster.
+  - could cause code bloat.
+- Compiler optimizations are very sophisticated.
+  - will likely inline even without your suggestion.
+- Inline functions take on the general form:
+```cpp
+inline int add_numbers(int a, int b) {
+  return a + b;
+}
+```
+## Recursive Functions
+- A recursive function is a function that calls itself.
+  - Either directly or indirectly through another function.
+- Recursive problem solving.
+  - Base case.
+  - Divide the rest of the problem into subproblem and do recursive call.
+- There are many problems that lend themselves to recursive solutions
+- Mathematic - factorial, Fibonacci, fractals,...
+- Searching and sorting - binary search, search trees,...
+### Important notes
+- If recursion doesn't eventually stop you will have infinite recursion.
+- Recursion can be resource intensive.
+- Remember the base cases(s)
+  - It terminates the recursion.
+- Only use recursive solutions when it makes sense.
+- Anything that can be done recursively can be done iteratively.
+  - Stack overflow error.
+## Coding Exercise 28
+- [x] Implementing a Recursive Function - Sum of Digits
+## Coding Exercise 29
+- [x] Implementing a Recursive Function - Save a Penny
+## Section Challenge
+## Section Challenge-Solution
+## Quiz 8
+- [ ] Section 11 Quiz
