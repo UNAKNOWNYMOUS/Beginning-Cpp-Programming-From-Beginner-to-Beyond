@@ -187,4 +187,4 @@ inline int add_numbers(int a, int b) {
 ## Section Challenge
 ## Section Challenge-Solution
 ## Quiz 8
-- [ ] Section 11 Quiz
+- [x] Section 11 Quiz
