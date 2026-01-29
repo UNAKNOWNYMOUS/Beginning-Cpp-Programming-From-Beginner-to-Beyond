@@ -47,3 +47,40 @@ variable_type *pointer_name {nullptr};
 - Unary operator.
 - Evaluates to the address of its operand.
   - Operand cannot be a constant or expressions that evaluates to temp values.
+- Don't confuse the size of a pointer and the size of what it points to.
+- All pointers in a program have the same size.
+- They may be pointing to very large or very small types.
+### Typed pointers
+- The compiler will make sure that the address stored in a pointer variable is of the correct type.
+
+- Pointers are variables so they can change.
+- Pointers can be null.
+- Pointers can be uninitialized.
+## Dereferencing a Pointer
+- Access the data we're pointing to - dereferencing a pointer
+- If `score_ptr` is a pointer and has a valid address.
+- Then you can access the data at the address contained in the `score_ptr` using the dereferencing operator `*`.
+## Dynamic Memory Allocation
+- Allocating storage from the heap at runtime
+- We often don't know how much storage we need until we need it.
+- We can allocate storage for a variable at run time.
+- Recall C++ arrays
+  - We had to explicitly provide the size and it was fixed.
+  - But vectors grow and shrink dynamically.
+- We can use pointers to access newly allocated heap storage.
+- Using `new` to allocate storage.
+- Using `delete` to deallocate storage.
+- Using `new[]` to allocate storage for an array.
+- Using `delete[]` to deallocate storage for an array.
+## The Relationship Between Arrays and Pointers
+- The value of an array name is the address of the first element in the array.
+- The value of a pointer variable is an address.
+- If the pointer points to the same data type as the array element then the pointer and array name can be used interchangeably (almost).
+```cpp
+int array_name[] {1, 2, 3, 4, 5};
+int *pointer_name {array_name};
+/* Subscript Notation   |   Offset Notation
+   array_name[index]    |   *(array_name + index)
+   pointer_name[index]  |   *(pointer_name + index)
+*/
+```
