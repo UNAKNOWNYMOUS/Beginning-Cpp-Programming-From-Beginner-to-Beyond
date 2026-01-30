@@ -80,7 +80,28 @@ variable_type *pointer_name {nullptr};
 int array_name[] {1, 2, 3, 4, 5};
 int *pointer_name {array_name};
 /* Subscript Notation   |   Offset Notation
+   ------------------------------------------------
    array_name[index]    |   *(array_name + index)
    pointer_name[index]  |   *(pointer_name + index)
 */
 ```
+## Pointer Arithmetic
+- Pointers can be used in:
+  - Assignment expressions.
+  - Arithmetic expressions.
+  - Comparison expressions.
+- C++ allows pointer arithmetic.
+- Pointer arithmetic only makes sense with raw arrays.
+- `++` increments a pointer to point to the next array element.
+- `--` decrements a pointer to point to the previous array element.
+- `+` increment pointer by `n * sizeof(type)`.
+- `-` decrement pointer by `n * sizeof(type)`.
+### Subtracting two pointers
+- Determine the number of elements between the pointers.
+- Both pointers must point to the same data type.
+### Comparing two pointers == and !=
+- Determine if two pointers point to the same location.
+  - does NOT compare the data where they point!
+### Comparing the data pointers point to
+- Determine if two pointers point to the same data.
+  - you must compare the referenced pointers.
