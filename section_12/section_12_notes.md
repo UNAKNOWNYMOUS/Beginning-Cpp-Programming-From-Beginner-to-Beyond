@@ -105,3 +105,61 @@ int *pointer_name {array_name};
 ### Comparing the data pointers point to
 - Determine if two pointers point to the same data.
   - you must compare the referenced pointers.
+## Coding Exercise 30
+- [x] Swap Values using Pointers
+  - Note can add numbers together instead of using a temp variable.
+## Const and Pointers
+- `const` and Pointers
+- There are several ways to qualify pointers using `const`:
+  - Pointers to constants
+  - Constant pointers
+  - Constant pointers to constants
+### Pointers to constants
+- The data pointed to by the pointers is constant and *cannot* be changed.
+- The pointer itself can change and point somewhere else.
+```cpp
+const int *score_ptr { &high_score };
+```
+### Constant pointers
+- The data pointed to by the pointers can be changed.
+- The pointer itself *cannot* change and point somewhere else.
+```cpp
+int *const score_ptr { &high_score };
+```
+### Constant pointers to constants
+- The data pointed to by the pointer is constant and *cannot* be changed.
+- The pointer itself *cannot* change and point somewhere else.
+```cpp
+const int *const score_ptr { &high_score };
+```
+## Passing Pointers to Functions
+- Pass-by-reference with pointer parameters.
+- We can use pointers and the dereference operator to achieve pass-by-reference.
+- The function parameter is a pointer.
+- The actual parameter can be a pointer or address of a variable.
+## Returning a Pointer from a Function
+- Functions can also return pointers
+```cpp
+type *function();
+```
+- Should return pointers to
+  - Memory dynamically allocated in the function.
+  - To data that was passed in.
+- Never return a pointer to a local function variable!
+## Coding Exercise 31
+- [x] Passing a Pointer to a Function
+## Coding Exercise 32
+- [x] Find the Maximum Element in an Array using Pointers
+## Coding Exercise 33
+- [x] Reverse an Array using Pointers (Challenging!)
+## Coding Exercise 34
+- [x] Reverse a std::string using Pointers (Challenging!)
+## Potential Pointer Pitfalls
+## What is a Reference?
+## L-values and R-values
+## Using the CodeLite IDE Debugger
+## Section Recap
+## Section Challenge
+## Section Challenge - Solution
+## Quiz 9
+- [ ] Section 12 Quiz
