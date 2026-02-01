@@ -183,9 +183,46 @@ type *function();
 - Very useful as function parameters.
 - Might be helpful to think of a reference as a constant pointer that is automatically dereferenced.
 ## L-values and R-values
+- l-values:
+  - values that have names and are addressable.
+  - modifiable if they are not constants.
+- r-value (non-addressable and non-assignable)
+  - A value that's not an l-value.
+    - on the right-hand side of an assignment expression.
+    - a literal.
+    - a temporary which is intended to be non-modifiable.
+- r-values can be assigned to l-values explicitly.
+- The references we've uses are l-value references.
+  - Because we are referencing l-values.
+- The same when we pass-by-reference.
 ## Using the CodeLite IDE Debugger
 ## Section Recap
+- Pass-by-value
+  - when the function does *not* modify the actual parameter, and
+  - the parameter is small and efficient to copy like simple types (int, char, double, etc.)
+- Pass-by-reference using a pointer:
+  - When the function does modify the actual parameter, and
+  - The parameter is expensive to copy, and
+  - Its OK to the pointer is allowed a nullptr
+    - References CANNOT be null.
+- Pass-by-reference using a pointer to `const`:
+  - When the function does *not* modify the actual parameter, and
+  - The parameter is expensive to copy, and
+  - Its OK to the pointer is allowed a nullptr
+- Pass-by-reference using a const pointer to const:
+  - When the function does *not* modify the actual parameter, and
+  - The parameter is expensive to copy, and
+  - Its OK to the pointer is allowed a nullptr value, and
+  - You don't want to modify the pointer itself.
+- Pass-by-reference using a reference:
+  - When the function *does* modify the actual parameter, and
+  - The parameter is expensive to copy, and
+  - The parameter will never be nullptr.
+- Pass-by-reference using a `const` reference:
+  - When the function does *not* modify the actual parameter, and
+  - The parameter is expensive to copy, and
+  - The parameter will never be nullptr.
 ## Section Challenge
 ## Section Challenge - Solution
 ## Quiz 9
-- [ ] Section 12 Quiz
+- [x] Section 12 Quiz
