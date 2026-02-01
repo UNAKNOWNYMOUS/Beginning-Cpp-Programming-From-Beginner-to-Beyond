@@ -155,7 +155,33 @@ type *function();
 ## Coding Exercise 34
 - [x] Reverse a std::string using Pointers (Challenging!)
 ## Potential Pointer Pitfalls
+- Uninitialized pointers.
+- Dangling Pointers.
+- Not checking if new failed to allocate memory.
+- Leaking memory.
+### Dangling pointer
+- Pointer that is pointing to released memory.
+  - For example, 2 pointers point to the same data.
+  - 1 pointer releases the data with delete.
+  - The other pointer accesses the release data.
+- Pointer that points to memory that is invalid.
+  - We saw this when we returned a pointer to a function local variable.
+### Not checking if new failed
+- If `new` fails an exception is thrown.
+- We can use exception handling to catch exceptions.
+- Dereferencing a null pointer will cause your program to crash.
+### Leaking memory
+- Forgetting to release allocated memory with delete.
+- If you lose your pointer to the storage allocated on the heap you have no way to get to that storage again.
+- The memory is orphaned or leaked.
+- One of the most common pointer problems.
 ## What is a Reference?
+- An alias for a variable.
+- Must be initialized to a variable when declared.
+- Cannot be null.
+- Once initialized cannot be made to refer to a different variable.
+- Very useful as function parameters.
+- Might be helpful to think of a reference as a constant pointer that is automatically dereferenced.
 ## L-values and R-values
 ## Using the CodeLite IDE Debugger
 ## Section Recap
