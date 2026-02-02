@@ -104,3 +104,22 @@ frank_account->deposit(1000.00);
 ```
 ## Coding Exercise 35
 - [x] Creating and Accessing Objects
+## Public and Private
+- `public`, `private`, and `protected`.
+- `public`
+  - accessible everywhere.
+- `private`
+  - accessible only by members or friends of the class.
+- `protected`
+  - used with inheritance - we'll talk about it in the next section.
+## Implementing Member Methods
+- Very similar to how we implemented functions.
+- Member methods have access to member attributes.
+  - So you don't need to pass them as arguments!
+- Can be implemented inside the class declaration.
+  - Implicitly inline.
+- Can be implemented outside the class declaration.
+  - Need to use `Class_name::method_name`.
+- Can separate specification from implementation.
+  - `.h` file for the class declaration.
+  - `.cpp` file for the class implementation.
