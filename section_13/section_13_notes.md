@@ -123,3 +123,50 @@ frank_account->deposit(1000.00);
 - Can separate specification from implementation.
   - `.h` file for the class declaration.
   - `.cpp` file for the class implementation.
+- Use Include Guard to tell the compiler to process the file only once no matter how many times it is `includ`ed.
+- Include Guards:
+```cpp
+#ifndef _CLASSNAME_H_
+#define _CLASSNAME_H_
+  // Class declaration stuff
+#endif
+```
+- They are preprocessor directives.
+- Many compilers also support the `pragma once` directive.
+```cpp
+#pragma once
+  // Class declaration stuff
+```
+- Same thing as the include guard.
+- `#include <>` - includes system header files and the compiler knows where these are located.
+- `#include ""` - tells the compiler to include header files local to this project, the compiler also knows where those are.
+- The way to include the `.cpp` class file and the `.h` class file in the `main.cpp` file is to include `.h` files, NEVER include `.cpp` files.
+- Don't use `using` statements in class files.
+- Use `.hpp` for class files.
+- Use `#pragma once` over include guard.
+- When returning a string literal to a function that expects a `std::string` the string literal that is `const char*` will implicitly be converted to a `std::string`.
+## Coding Exercise 36
+- [x] Adding public methods that access private class attributes.
+## Coding Exercise 37
+- [x] Add more public methods to an existing class.
+## Constructors and Destructors
+### Constructors
+- Special member method
+- Invoked during object creation.
+- Useful for initialization.
+- Same name as the class.
+- No return type is specified.
+- Can be overloaded
+### Destructor
+- Special member method.
+- Same name as the class proceeded with a tilde (~).
+- Invoked automatically when an object is destroyed.
+- No return type and no parameters.
+- Only 1 destructor is allowed per class - cannot be overloaded!
+- Useful to release memory and other resources.
+## The Default Constructor
+- Does not expect any arguments.
+  - Also called the no-args constructor.
+- If you write no constructors at all for a class.
+  - C++ will generate a Default Constructor that does nothing.
+- Called when you instantiate a new object with no arguments.
