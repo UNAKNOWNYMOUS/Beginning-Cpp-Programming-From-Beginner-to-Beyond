@@ -170,3 +170,29 @@ frank_account->deposit(1000.00);
 - If you write no constructors at all for a class.
   - C++ will generate a Default Constructor that does nothing.
 - Called when you instantiate a new object with no arguments.
+## Coding Exercise 38
+- [x] Add a Default Constructor to an Existing Class
+## Overloading Constructors
+- Classes can have as many constructors as necessary.
+- Each must have a unique signature.
+- Default constructor is no longer compiler-generated once another constructor is declared.
+## Coding Exercise 39
+- [x] Add an Overloaded Constructor to an Existing Class
+## Constructor Initialization lists
+- So far, all data member values have been set in the constructor body.
+- Constructor initialization lists:
+  - Are more efficient.
+  - Initialization list immediately follows the parameter list.
+  - Initializes the data members as the object is created!
+  - Order of initialization is the order of declaration in the class.
+## Delegating Constructors
+- Often the code for constructors is very similar.
+- Duplicated code can lead to errors.
+- C++ allows delegating constructors:
+  - Code for one constructor can call another in the initialization list.
+  - Avoids duplicating code.
+## Constructor Parameters and Default Values
+- Can often simplify our code and reduce the number of overloaded constructors.
+- Same rules apply as we learned with non-member functions.
+## Copy Constructor
+
