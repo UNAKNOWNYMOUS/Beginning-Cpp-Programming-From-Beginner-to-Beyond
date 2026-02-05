@@ -231,3 +231,30 @@ frank_account->deposit(1000.00);
 - Create a *copy* of the pointed-to data.
 - Each copy will have a pointer to unique storage in the heap.
 - Deep copy when you have a raw pointer as a class data member.
+## Move Constructors
+- Sometimes when we execute code the compiler creates unnamed temporary values.
+```cpp
+int total {0};
+total = 100 + 200;
+```
+  - `100 + 200` is evaluated and `300` stored in an unnamed temp value.
+  - The `300` is then stored in the variable total.
+  - Then the temp value is discarded.
+- The same happens with objects as well.
+- Sometimes copy constructors are called many times automatically due to the copy semantics of C++.
+- Copy constructors doing deep copying can have a significant performance bottleneck.
+- C++11 introduced move semantics and the move constructor.
+- Move constructor moves an object rather than copying it.
+- Optional but recommended when you have a raw pointer.
+- Copy elision - C++ may optimize copying away completely (RVO-Return Value Optimization).
+### r-value references
+- Used in moving semantics and perfect forwarding.
+- Move semantics is all about r-value references.
+- Used by move constructor and move assignment operator to efficiently move an object rather than copy it.
+- R-value reference operator (&&).
+### What does it do?
+- Instead of making a deep copy of the move constructor:
+  - 'Moves' the resource.
+  - Simply copies the address of the resource from source to the current object.
+  - And, nulls out the pointer in the source pointer.
+- Very efficient.
