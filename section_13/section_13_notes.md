@@ -195,4 +195,39 @@ frank_account->deposit(1000.00);
 - Can often simplify our code and reduce the number of overloaded constructors.
 - Same rules apply as we learned with non-member functions.
 ## Copy Constructor
-
+- When objects are copied C++ must create a new object from an existing object.
+- When is a copy of and object made?
+  - Passing object by value as a parameter.
+  - Returning an object from a function by value.
+  - Constructing one object based on another of the same class.
+- C++ must have a way of accomplishing this so it provides a compiler-defined copy constructor if you don't.
+- If you don't provide your own way of copying objects by value then the compiler provides a default way of copying objects.
+- Copies the values of each data member to the new object
+  - Default memberwise copy.
+- Perfectly fine in many cases.
+- Beware if you have a pointer data member:
+  - Pointer will be copied.
+  - Not what it is pointing to.
+  - Shallow vs. Deep copy - more in the next video.
+### Best practices
+- Provide a copy constructor when your class has raw pointer members.
+- Provide the copy constructor with a *const reference* parameter.
+- Use STL classes as they already provide copy constructors.
+- Avoid using raw pointer data members if possible.
+## Coding Exercise 40
+- [x] Add a Copy Constructor to an Existing Class
+## Shallow Copying with the Copy Constructor
+### Shallow vs. Deep Copying
+- Consider a class that contains a pointer as a data member.
+- Constructor allocates storage dynamically and initializes the pointer.
+- Destructor releases the memory allocated by the constructor.
+- What happens in the default copy constructor?
+### Default copy constructor
+- Memberwise copy.
+- Each data member is copied from the source object.
+- The pointer is copied NOT what it points to (shallow copy).
+- *Problem*: when we release the storage in the destructor, the other object still refers to the released storage!
+## Deep Copying with the Copy Constructor
+- Create a *copy* of the pointed-to data.
+- Each copy will have a pointer to unique storage in the heap.
+- Deep copy when you have a raw pointer as a class data member.
