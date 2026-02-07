@@ -258,3 +258,64 @@ total = 100 + 200;
   - Simply copies the address of the resource from source to the current object.
   - And, nulls out the pointer in the source pointer.
 - Very efficient.
+## This 'this' Pointer
+- `this` is a reserved keyword.
+- Contains the address of the object - so it's a pointer to the object.
+- Can only be used in class scope.
+- All member access is done via the `this` pointer.
+- Can be used by the programmer:
+  - To access data member and methods.
+  - To determine if two objects are the same (more in the next section).
+  - Can be dereferenced (`*this`) to yield the current object.
+- To determine object identity.
+- Sometimes its useful to know if two objects are the same object.
+- We'll use the `this` pointer again when we overload the assignment operator.
+## Using const with Classes
+- Pass arguments to class member methods as `const`.
+- We can also create `const` objects.
+- What happens if we call member functions on `const` objects?
+- `const`-correctness
+## Static Class Members
+- Class data members can be declared as static:
+  - A single data member that belongs to the class, not the objects.
+  - Useful to store class-wide information.
+- Class functions can be declared as static:
+  - Independent of any objects.
+  - Can be called using the class name.
+## Structs vs Classes
+- In addition to define a `class` we can declare a `struct`.
+- `struct` comes from the C programming language.
+- Essentially the same as a `class` expect.
+  - Member are `public` by default.
+### Some General Guidelines
+- `struct`
+  - Use `struct` for passive objects with public access.
+  - Don't declare methods in `struct`.
+- `class`
+  - Use class for active objects with private access.
+  - Implement getters/setters as needed.
+  - Implement member methods as needed.
+## Friends of a Class
+- Friend
+  - A function or class that has access to private class member.
+  - And, that function of or class is NOT a member of the class it is accessing.
+- Function
+  - Can be regular non-member functions.
+  - Can be member methods of another class.
+- Class
+  - Another class can have access to private class members.
+- Friendship must be granted NOT taken:
+  - Declared explicitly in the class that is granting friendship.
+  - Declared in the function prototype with the keyword `friend`.
+- Friendship is not symmetric:
+  - Must be explicitly granted.
+    - If A is a friend of B.
+    - B is NOT a friend of A.
+- Friendship is not transitive.
+  - Must be explicitly granted.
+    - If A is a friend of B AND
+    - B is a friend of C
+    - Then A is NOT friend of C
+## Section Challenge
+## Section Challenge - Solution
+## Quiz 10: Section 13 Quiz
