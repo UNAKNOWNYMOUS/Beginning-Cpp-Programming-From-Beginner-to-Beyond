@@ -1,3 +1,0 @@
-/home/batman/GitHub/UNAKNOWNYMOUS/Beginning-Cpp-Programming-From-Beginner-to-Beyond/section_13/section_13_challenge/build/CMakeFiles/myapp.dir
-/home/batman/GitHub/UNAKNOWNYMOUS/Beginning-Cpp-Programming-From-Beginner-to-Beyond/section_13/section_13_challenge/build/CMakeFiles/edit_cache.dir
-/home/batman/GitHub/UNAKNOWNYMOUS/Beginning-Cpp-Programming-From-Beginner-to-Beyond/section_13/section_13_challenge/build/CMakeFiles/rebuild_cache.dir
