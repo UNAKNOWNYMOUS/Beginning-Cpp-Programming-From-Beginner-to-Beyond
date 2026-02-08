@@ -1,0 +1,5 @@
+# ninja log v7
+1	271	1770515542520966028	CMakeFiles/myapp.dir/src/Movie.cpp.o	cf8987a0e934b40f
+0	305	1770515542520639772	CMakeFiles/myapp.dir/src/main.cpp.o	da62b5fd2244edf5
+1	329	1770515542521270706	CMakeFiles/myapp.dir/src/Movies.cpp.o	883d200c238e7634
+329	366	1770515542848637701	myapp	24cde7e4dec760ef

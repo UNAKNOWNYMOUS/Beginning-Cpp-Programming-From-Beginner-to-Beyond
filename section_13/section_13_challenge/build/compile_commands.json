@@ -1,0 +1,20 @@
+[
+{
+  "directory": "/home/batman/GitHub/UNAKNOWNYMOUS/Beginning-Cpp-Programming-From-Beginner-to-Beyond/section_13/section_13_challenge/build",
+  "command": "/usr/bin/c++ -I/home/batman/GitHub/UNAKNOWNYMOUS/Beginning-Cpp-Programming-From-Beginner-to-Beyond/section_13/section_13_challenge/include -g -std=gnu++17 -o CMakeFiles/myapp.dir/src/main.cpp.o -c /home/batman/GitHub/UNAKNOWNYMOUS/Beginning-Cpp-Programming-From-Beginner-to-Beyond/section_13/section_13_challenge/src/main.cpp",
+  "file": "/home/batman/GitHub/UNAKNOWNYMOUS/Beginning-Cpp-Programming-From-Beginner-to-Beyond/section_13/section_13_challenge/src/main.cpp",
+  "output": "/home/batman/GitHub/UNAKNOWNYMOUS/Beginning-Cpp-Programming-From-Beginner-to-Beyond/section_13/section_13_challenge/build/CMakeFiles/myapp.dir/src/main.cpp.o"
+},
+{
+  "directory": "/home/batman/GitHub/UNAKNOWNYMOUS/Beginning-Cpp-Programming-From-Beginner-to-Beyond/section_13/section_13_challenge/build",
+  "command": "/usr/bin/c++ -I/home/batman/GitHub/UNAKNOWNYMOUS/Beginning-Cpp-Programming-From-Beginner-to-Beyond/section_13/section_13_challenge/include -g -std=gnu++17 -o CMakeFiles/myapp.dir/src/Movie.cpp.o -c /home/batman/GitHub/UNAKNOWNYMOUS/Beginning-Cpp-Programming-From-Beginner-to-Beyond/section_13/section_13_challenge/src/Movie.cpp",
+  "file": "/home/batman/GitHub/UNAKNOWNYMOUS/Beginning-Cpp-Programming-From-Beginner-to-Beyond/section_13/section_13_challenge/src/Movie.cpp",
+  "output": "/home/batman/GitHub/UNAKNOWNYMOUS/Beginning-Cpp-Programming-From-Beginner-to-Beyond/section_13/section_13_challenge/build/CMakeFiles/myapp.dir/src/Movie.cpp.o"
+},
+{
+  "directory": "/home/batman/GitHub/UNAKNOWNYMOUS/Beginning-Cpp-Programming-From-Beginner-to-Beyond/section_13/section_13_challenge/build",
+  "command": "/usr/bin/c++ -I/home/batman/GitHub/UNAKNOWNYMOUS/Beginning-Cpp-Programming-From-Beginner-to-Beyond/section_13/section_13_challenge/include -g -std=gnu++17 -o CMakeFiles/myapp.dir/src/Movies.cpp.o -c /home/batman/GitHub/UNAKNOWNYMOUS/Beginning-Cpp-Programming-From-Beginner-to-Beyond/section_13/section_13_challenge/src/Movies.cpp",
+  "file": "/home/batman/GitHub/UNAKNOWNYMOUS/Beginning-Cpp-Programming-From-Beginner-to-Beyond/section_13/section_13_challenge/src/Movies.cpp",
+  "output": "/home/batman/GitHub/UNAKNOWNYMOUS/Beginning-Cpp-Programming-From-Beginner-to-Beyond/section_13/section_13_challenge/build/CMakeFiles/myapp.dir/src/Movies.cpp.o"
+}
+]
