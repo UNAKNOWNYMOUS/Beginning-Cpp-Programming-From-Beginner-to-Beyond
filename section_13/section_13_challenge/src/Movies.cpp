@@ -20,6 +20,12 @@ void Movies::display() const {
 }
 
 bool Movies::add_movie(std::string name, std::string rating, int watched) {
+  for (auto const &object : list) {
+    if (object.get_name() == name) {
+      std::cout << "Error, movie name exists already" << std::endl;
+      return false;
+    }
+  }
   list.push_back(Movie{name, rating, watched});
   return true;
 }

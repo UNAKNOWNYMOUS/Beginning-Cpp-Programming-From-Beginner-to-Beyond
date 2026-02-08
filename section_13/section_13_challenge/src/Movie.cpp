@@ -13,5 +13,5 @@ Movie::Movie(const Movie &object)
 Movie::~Movie() {}
 
 void Movie::display() const {
-  std::cout << name << ", " << rating << ", " << watched << ", " << std::endl;
+  std::cout << name << ", " << rating << ", " << watched << std::endl;
 }
