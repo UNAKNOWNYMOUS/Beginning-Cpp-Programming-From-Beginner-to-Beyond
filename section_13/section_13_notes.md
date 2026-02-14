@@ -207,3 +207,167 @@ public:
   bool is_dead();
 };
 ```
+## Implementing Member Methods
+- Very similar to how we implemented functions.
+- Member methods have access to member attributes.
+  - So you don't need to pass them as arguments!
+- Can be implemented inside the class declaration.
+  - Implicitly inline.
+- Can be implemented outside the class declaration.
+  - Need to use `Class_name::method_name`.
+- Can separate specification from implementation.
+  - `.h` file for the class declaration.
+  - `.cpp` file for the class implementation.
+- Example of inside the class declaration:
+```cpp
+class Account {
+private:
+  double balance;
+public:
+  void set_balance(double bal) {
+    balance = bal;
+  }
+  double get_balance() {
+    return balance;
+  }
+};
+```
+- Example of outside the class declaration:
+```cpp
+class Account {
+private:
+  double balance;
+public:
+  void set_balance(double bal);
+  double get_balance();
+};
+
+void Account::set_balance(double bal) {
+  balance = bal;
+}
+
+double Account::get_balance() {
+  return balance;
+}
+```
+### Separating Specification from Implementation
+```cpp
+/* Account.h */
+class Account {
+private:
+  double balance;
+public:
+  void set_balance(double bal);
+  double get_balance();
+};
+```
+- Include Guard to stop processing same file more than once:
+```cpp
+#ifndef _ACCOUNT_H_
+#define _ACCOUNT_H_
+  // Account class declaration
+#endif
+```
+- Pragma once directive in place of the include guard:
+```cpp
+#pragma once
+  // Account class declaration
+```
+- Implementation for Account class:
+```cpp
+/* Account.cpp */
+#include "Account.h"
+
+void Account::set_balance(double bal) {
+  balance = bal;
+}
+
+double Account::get_balance() {
+  return balance;
+}
+```
+- Always include `.h` files, never include `.cpp` files.
+## Coding Exercise 36
+- [x] Adding public methods that access private class attributes.
+## Coding Exercise 37
+- [x] Add more public methods to an existing class.
+## Constructors and Destructors
+### Constructors
+- Special member method.
+- Invoked during object creation.
+- Useful for initialization.
+- Same name as the class.
+- No return type is specified.
+- Can be overloaded.
+- Example:
+```cpp
+class Player {
+private:
+  std::string name;
+  int health;
+  int xp;
+public:
+  // Overloaded Constructors
+  Player();
+  Player(std::string name);
+  Player(std::string name, int health, int xp);
+};
+```
+- Another Example:
+```cpp
+class Account {
+private:
+  std::string name;
+  double balance;
+public:
+  // Constructors
+  Account();
+  Account(std::string name, double balance);
+  Account(std::string name);
+  Account(double balance);
+};
+```
+### Destructors
+- Special member method.
+- Same name as the class proceeded with a tilde (~).
+- Invoked automatically when an object is destroyed.
+- No return type and no parameters.
+- Only 1 destructor is allowed per class - cannot be overloaded!
+- Useful to release memory and other resources.
+- Example:
+```cpp
+class Player {
+private:
+  std::string name;
+  int health;
+  int xp;
+public:
+  Player();
+  Player(std::string name);
+  Player(std::string name, int health, int xp);
+  // Destructor
+  ~Player();
+};
+```
+- Another example:
+```cpp
+class Account {
+private:
+  std::string name;
+  double balance;
+public:
+  Account();
+  Account(std::string name, double balance);
+  Account(std::string name);
+  Account(double balance);
+  // Destructor
+  ~Account();
+};
+```
+- If you don't provide a constructor and destructor, C++ will generate one for you but they are empty!
+## The Default Constructor
+- Does not expect any arguments.
+  - Also called the no-args constructor.
+- If you write no constructors at all for a class:
+  - C++ will generate a Default Constructor that does nothing.
+- Called when you instantiate a new object with no arguments.
