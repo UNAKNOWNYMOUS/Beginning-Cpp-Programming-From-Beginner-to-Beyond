@@ -371,3 +371,175 @@ public:
 - If you write no constructors at all for a class:
   - C++ will generate a Default Constructor that does nothing.
 - Called when you instantiate a new object with no arguments.
+- Example: Account - using default constructor
+```cpp
+class Account {
+private:
+  std::string name;
+  double balance;
+public:
+  bool withdraw(double amount);
+  bool deposit(double amount);
+};
+```
+- Example: Account - user-defined no-args constructor
+```cpp
+class Account {
+private:
+  std::string name;
+  double balance;
+public:
+  Account() {
+    name = "None";
+    balance = 0.0;
+  }
+  bool withdraw(double amount);
+  bool deposit(double amount);
+};
+```
+- Example: Account - no default constructor
+```cpp
+class Account {
+private:
+  std::string name;
+  double balance;
+public:
+  Account(std::string name_val, double bal) {
+    name = name_val;
+    balance = bal;
+  }
+  bool withdraw(double amount);
+  bool deposit(double amount);
+};
+```
+- Once we provide a single constructor for a class, C++ will not generate a default constructor for us!
+## Coding Exercise 38
+- [x] Add a Default Constructor to an Existing Class
+## Overloading Constructors
+- Classes can have as many constructors as necessary.
+- Each must have a unique signature.
+- Default constructor is no longer compiler-generated once another constructor is declared.
+- Example: Overloaded Constructors
+```cpp
+class Player {
+private:
+  std::string name;
+  int health;
+  int xp;
+public:
+  // Overloaded Constructors
+  Player();
+  Player(std::string name_val);
+  Player(std::string name_val, int health_val, int xp_val);
+};
+
+// Overloaded Constructors
+Player::Player() {
+  name = "None";
+  health = 0;
+  xp = 0;
+}
+
+Player::Player(std::string name_val) {
+  name = name_val;
+  health = 0;
+  xp = 0;
+}
+
+Player::Player(std::string name_val, int health_val, int xp_val) {
+  name = name_val;
+  health = health_val;
+  xp = xp_val;
+}
+```
+- Best practice is to initialize all class attributes so that there's no garbage data.
+## Coding Exercise 39
+- [x] Add an Overloaded Constructor to an Existing Class
+## Constructor Initialization lists
+- So far, all data member values have been set in the constructor body.
+- Constructor initialization lists:
+  - Are more efficient.
+  - Initialization list immediately follows the parameter list.
+  - Initializes the data members as the object is created!
+  - Order of initialization is the order of declaration in the class.
+- Example:
+```cpp
+class Player {
+private:
+  std::string name;
+  int health;
+  int xp;
+public:
+  // Overloaded Constructors
+  Player();
+  Player(std::string name_val);
+  Player(std::string name_val, int health_val, int xp_val);
+};
+
+// Previous way:
+Player::Player() {
+  name = "None"; // assignment not initialization
+  health = 0;
+  xp = 0;
+}
+
+// Better way:
+Player::Player()
+  : name{"None"}, health{0}, xp{0} {
+}
+```
+- The data members will be initialized in the order they were declared in the class.
+```cpp
+// Previous way:
+Player::Player(std::string name_val) {
+  name = name_val; // assignment not initialization
+  health = 0;
+  xp = 0;
+}
+
+// Better way:
+Player::Player(std::string name_val)
+  : name{name_val}, health{0}, xp{0} {}
+
+// Previous way:
+Player::Player(std::string name_val, int health_val, int xp_val) {
+  name = name_val; // assignment not initialization
+  health = health_val;
+  xp = xp_val;
+}
+
+// Better way:
+Player::Player(std::string name_val, int health_val, int xp_val)
+  : name{name_val}, health{health_val}, xp{xp_val} {}
+```
+## Delegating Constructors
+- Often the code for constructors is very similar.
+- Duplicated code can lead to errors.
+- C++ allows delegating constructors
+  - Code for one constructor can call another in the initialization list.
+  - Avoids duplicating code.
+- Example:
+```cpp
+class Player {
+private:
+  std::string name;
+  int health;
+  int xp;
+public:
+  // Overloaded Constructors
+  Player();
+  Player(std::string name_val);
+  Player(std::string name_val, int health_val, int xp_val);
+};
+
+// Delegating Constructors
+Player::Player(std::string name_val, int health_val, int xp_val)
+  : name{name_val}, health{health_val}, xp{xp_val} {}
+
+Player::Player()
+  : Player{"None", 0, 0} {}
+
+Player::Player(std::string name_val)
+  : Player{name_val, 0, 0} {}
+```
+- The `this` keyword refers pointer to the current object.
