@@ -543,3 +543,170 @@ Player::Player(std::string name_val)
   : Player{name_val, 0, 0} {}
 ```
 - The `this` keyword refers pointer to the current object.
+## Constructor Parameters and Default Values
+- Can often simplify our code and reduce the number of overloaded constructors.
+- Same rules apply as we learned with non-member functions.
+- Example:
+```cpp
+class Player {
+private:
+  std::string name;
+  int health;
+  int xp;
+public:
+  // Constructor with default parameter values
+  Player(std::string name_val = "None", int health_val = 0, int xp_val = 0);
+};
+```
+## Copy Constructor
+- When objects are copied C++ must create a new object from an existing object.
+- When is a copy of an object made?
+  - Passing object by value as a parameter.
+  - Returning an object from a function by value.
+  - Constructing one object based on another of the same class.
+- C++ must have a way of accomplishing this so it provides a compiler-defined copy constructor if you don't.
+- Example:
+```cpp
+Player hero {"Hero", 100, 20};
+
+void display_player(Player p) {
+  // p is a COPY of hero in this example
+  // use p
+  // Destructor for p will be called
+}
+
+display_player(hero);
+```
+- Another Example:
+```cpp
+Player enemy;
+
+Player create_super_enemy() {
+  Player an_enemy{"Super Enemy", 1000, 1000};
+  return an_enemy; // A COPY of an_enemy is returned
+}
+
+enemy = create_super_enemy();
+```
+- Another Example:
+```cpp
+Player hero {"Hero", 100, 100};
+Player another_hero {hero}; // A COPY of hero is made
+```
+- If you don't provide your own way of copying objects by value then the compiler provides a default way of copying objects.
+- Copies the value of each data member to the new object.
+  - Default memberwise copy.
+- Perfectly fine in many cases.
+- Beware if you have a pointer data member:
+  - Pointer will be copied.
+  - Not what is is pointing to.
+  - Shallow vs. Deep copy - more in the next video.
+### Best practices
+- Provide a copy constructor when your class has raw pointer members.
+- Provide the copy constructor with a `const reference` parameter.
+- Use STL classes as they already provide copy constructors.
+- Avoid using raw pointer data members if possible.
+- Method signature of copy constructor Example:
+```cpp
+Type::Type(const Type &source);
+
+Player::Player(const Player &source);
+
+Account::Acount(const Account &source);
+```
+- It has to be by pass-by-reference because then we will end up with a never ending recursive calls to constructors.
+- Example to implement:
+```cpp
+Type::Type(const Type &source) {
+  // code
+}
+
+Player::Player(const Player &source)
+  : name{source.name}, health{source.health}, xp{source.xp} {}
+
+Account::Acount(const Account &source)
+  : name{source.name}, balance{source.balance} {}
+```
+## Coding Exercise 40
+- [x] Add a Copy Constructor to an Existing Class.
+## Shallow Copying with the Copy Constructor
+- Consider a class that contains a pointer as a data member.
+- Constructor allocates storage dynamically and initializes the pointer.
+- Destructor releases the memory allocated by the constructor.
+- What happens in the default copy constructor?
+### Default copy constructor
+- Memberwise copy.
+- Each data member is copied from the source object.
+- The pointer is copied NOT what it points to (shallow copy).
+- Problem: When we release the storage in the destructor, the other object still refers to the released storage!
+- Shallow Copy Example:
+```cpp
+class Shallow {
+private:
+  int *data;
+public:
+  Shallow(int d);
+  Shallow(const Shallow &source);
+  ~Shallow();
+};
+
+Shallow::Shallow(int d) {
+  data = new int;
+  *data = d;
+}
+
+Shallow::~Shallow() {
+  delete data;
+  cout << "Destructor freeing data" << endl;
+}
+
+Shallow::Shallow(const Shallow &source)
+  : data(source.data) {
+  cout << "Copy constructor - shallow" << endl;
+}
+```
+- Shallow copy - only the pointer is coped - not what it is pointing to!
+- Problem: `source` and the newly created object BOTH point to the SAME `data` area!
+## Deep Copying with the Copy Constructor
+- Create a *copy* of the pointed-to data.
+- Each copy will have a pointer to unique storage in the heap.
+- Deep copy when you have a raw pointer as a class data member.
+- Deep Copy Example:
+```cpp
+class Deep {
+private:
+  int *data;
+public:
+  Deep(int d);
+  Deep(const Deep &source);
+  ~Deep();
+};
+
+Deep::Deep(int d) {
+  data = new int;
+  *data = d;
+}
+
+Deep::~Deep() {
+  delete data;
+  cout << "Destructor freeing data" << endl;
+}
+
+Deep::Deep(const Deep &source) {
+  data = new int;
+  *data = *source.data;
+  cout << "Copy constructor - deep" << endl;
+}
+
+// Delegating
+Deep::Deep(const Deep &source)
+  : Deep{*source.data} {
+  cout << "Copy constructor - deep" << endl;
+}
+
+void display_deep(Deep s) {
+  cout << s.get_data_value() << endl;
+}
+```
+- When `s` goes out of scope the destructor is called and releases `data`.
+- No Problem: since the storage being released is unique to `s`.
