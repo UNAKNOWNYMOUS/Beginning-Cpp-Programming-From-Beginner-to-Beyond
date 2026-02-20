@@ -711,4 +711,105 @@ void display_deep(Deep s) {
 - When `s` goes out of scope the destructor is called and releases `data`.
 - No Problem: since the storage being released is unique to `s`.
 ## Move Constructors
+- Sometimes when we execute code the compiler creates unnamed temporary values.
+```cpp
+int total {0};
+total = 100 + 200;
+```
+- `100 + 200` is evaluated and `300` stored in an unnamed temp value.
+- The `300` is then stored in the variable total.
+- Then the temp value is discarded.
+- The same happens with objects as well.
+### When is it useful?
+- Sometimes copy constructors are called many time automatically due to the copy semantics of C++.
+- Copy constructors doing deep copying can have significant performance bottleneck.
+- C++11 introduced move semantics and the move constructor.
+- Move constructor moves an object rather than copying it.
+- Optional but recommended when you have a raw pointer.
+- Copy elision - C++ may optimize copying away completely (RVO-Return Value Optimization).
+### r-value references
+- Used in moving semantics and perfect forwarding.
+- Move semantics is all about r-value references.
+- Used by move constructor and move assignment operator to efficiently move an object rather than copying it.
+- R-value reference operator (&&).
+- Example:
+```cpp
+int x{100};
+int &l_ref = x; // l-value reference
+l_ref = 10;     // change x to 10
 
+int &&r_ref = 200;  // r-value ref
+r_ref = 300;        // change r_ref to 300
+
+int &&x_ref = x; // Compiler error
+```
+- Example l-value reference parameters:
+```cpp
+int x{100};           // x is an l-value
+void func(int &num);  // A
+
+func(x);              // calls A - x is an l-value
+func(200);            // Error - 200 is an r-value
+```
+- Example r-value reference parameters
+```cpp
+int x{100};           // x is an l-value
+void func(int &&num); // B
+
+func(200);            // calls B - 200 is an r-value
+func(x);              // ERROR - x is an l-value
+```
+- Example: l-value and r-value reference parameters
+```cpp
+int x{100};           // x is an l-value
+
+void func(int &num);  // A
+void func(int &&num); // B
+
+func(x);              // calls A - x is an l-value
+func(200);            // calls B - 200 is an r-value
+```
+- Example - Move Class
+```cpp
+class Move {
+private:
+  int *data;
+public:
+  void set_data_value(int d) { *data = d; }
+  int get_data_Value() { return *data; }
+  Move(int d);
+  Move(const Move &source);
+  ~Move();
+};
+```
+### What does it do?
+- Instead of making a deep copy of the move constructor.
+  - 'moves' the resource.
+  - Simply copies the address of the resource from source to the current object.
+  - And, nulls out the pointer in the source pointer.
+- Very efficient.
+- Syntax for r-value reference:
+```cpp
+Type::Type(Type &&source);
+Player::Player(Player &&source);
+Move::Move(Move &&source);
+```
+- Example - Move Class with move constructor
+```cpp
+class Move {
+private:
+  int *data;
+public:
+  void set_data_value(int d) { *data = d; }
+  int get_data_Value() { return *data; }
+  Move(int d);
+  Move(const Move &source);
+  Move(Move &&source);
+  ~Move();
+};
+
+Move::Move(Move &&source)
+  : data{source.data} {
+  source.data = nullptr;
+}
+```
